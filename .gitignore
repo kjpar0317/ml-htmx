@@ -10,6 +10,5 @@ dist
 venv
 .venv
 
-keras
 model
 onnx

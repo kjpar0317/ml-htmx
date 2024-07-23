@@ -19,6 +19,7 @@ onnx_path = os.getcwd() + "/onnx/"
 @router.post("/make_model")
 async def make_model(request: Request):
     # load data
+    # 텐서플로와 케라스가 매우 밀접하게 통합되었고, 다양한 데이터셋이 케라스 라이브러리를 통해 활용할 수 있습니다. 아래의 코드를 통해 MNIST 데이터셋을 인터넷을 통해 가져옵니다.
     (train_x, train_y), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
     train_x, test_x = train_x / 255.0, test_x / 255.0
 
@@ -37,8 +38,10 @@ async def make_model(request: Request):
     input_names = [n.name for n in model.inputs]
     print(input_names)
 
-    # model course setting
-    # https://rfriend.tistory.com/721
+    # model compile
+    # loss는 손실함수 : https://rfriend.tistory.com/721
+    # optimaizer adam은 모델의 학습 중에 역전파를 통한 가중치 최적화를 위한 기울기 방향에 대한 경사하강을 위한 방법
+    # metrics accuracy는 평가지표
     model.compile(
         loss='sparse_categorical_crossentropy',
         optimizer='adam',
@@ -54,7 +57,7 @@ async def make_model(request: Request):
     model.evaluate(test_x, test_y, verbose=2)
 
     # model save
-    model.save(keras_path + "tf_mode.keras")
+    # model.save(keras_path + "tf_mode.keras")
 
     # model export
     model.export(model_path)
@@ -80,6 +83,7 @@ async def inference_model(request: Request):
     # onnx 모델 추론
     ort_model = InferenceSession(onnx_path + "tf_mode.onnx")
 
+    # 텐서플로와 케라스가 매우 밀접하게 통합되었고, 다양한 데이터셋이 케라스 라이브러리를 통해 활용할 수 있습니다. 아래의 코드를 통해 MNIST 데이터셋을 인터넷을 통해 가져옵니다.
     (_, _), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
     test_x = (test_x / 255.0).astype('float32')
 
