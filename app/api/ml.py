@@ -38,6 +38,7 @@ async def make_model(request: Request):
     print(input_names)
 
     # model course setting
+    # https://rfriend.tistory.com/721
     model.compile(
         loss='sparse_categorical_crossentropy',
         optimizer='adam',
@@ -45,23 +46,23 @@ async def make_model(request: Request):
     )
 
     # model training
+    # epochs은 학습 횟수
     model.fit(train_x, train_y, epochs=10)
 
     # model evalutate
+    # verbose는 함수 수행 시 발생하는 표준 출력, 0은 출력 안함, 1은 자세히, 2는 함축적인 정보만 출력
     model.evaluate(test_x, test_y, verbose=2)
 
     # model save
-    # model.save(keras_path + "tf_mode.h5", include_optimizer=False)
     model.save(keras_path + "tf_mode.keras")
+
+    # model export
+    model.export(model_path)
 
     return templates.TemplateResponse("partials/result.html", {"request": request, "result": model.get_metrics_result()})
 
 @router.post("/convert_model")
 async def convert_model(request: Request):
-    model = tf.keras.models.load_model(keras_path + "tf_mode.keras", compile=False)
-
-    model.export(model_path)
-
     _output = onnx_path + "tf_mode.onnx"
 
     cmd = 'python -m tf2onnx.convert --saved-model ' + model_path + ' --output ' + _output + ' --opset 13'
@@ -82,10 +83,9 @@ async def inference_model(request: Request):
     (_, _), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
     test_x = (test_x / 255.0).astype('float32')
 
-
     print(test_x[0:1])
 
-    result = ort_model.run(None, {'input_layer': test_x[0:1]})[0]
+    result = ort_model.run(None, {'keras_tensor': test_x[0:1]})[0]
 
     return templates.TemplateResponse("partials/inference.html", {"request": request, "result": np.argmax(result)})
 
