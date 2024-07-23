@@ -22,7 +22,9 @@ async def make_model(request: Request):
     (train_x, train_y), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
     train_x, test_x = train_x / 255.0, test_x / 255.0
 
-    # model definitio
+    # ReLU는 sparse activation(희소 활성화)를 생성한다
+    # Softmax(소프트맥스)는 입력받은 값을 출력으로 0~1사이의 값으로 모두 정규화하며 출력 값들의 총합은 항상 1이 되는 특성을 가진 함수이다.
+    # model definition
     model = tf.keras.Sequential(
         [
             tf.keras.layers.Flatten(input_shape=(28, 28)),
