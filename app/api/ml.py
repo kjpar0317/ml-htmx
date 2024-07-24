@@ -6,7 +6,6 @@ import tensorflow as tf
 import onnx
 import numpy as np
 from onnxruntime import InferenceSession
-from sklearn.metrics import accuracy_score
 
 router = APIRouter()
 
@@ -81,15 +80,16 @@ async def inference_model(request: Request):
     onnx.checker.check_model(onnx_model)
 
     # onnx 모델 추론
-    ort_model = InferenceSession(onnx_path + "tf_mode.onnx")
+    ort_model = InferenceSession(onnx_path + "tf_mode.onnx", providers=["CPUExecutionProvider"])
 
     # 텐서플로와 케라스가 매우 밀접하게 통합되었고, 다양한 데이터셋이 케라스 라이브러리를 통해 활용할 수 있습니다. 아래의 코드를 통해 MNIST 데이터셋을 인터넷을 통해 가져옵니다.
     (_, _), (test_x, test_y) = tf.keras.datasets.mnist.load_data()
-    test_x = (test_x / 255.0).astype('float32')
+    # test_x = (test_x / 255.0).astype('float32')
 
-    print(test_x[0:1])
+    input_name = ort_model.get_inputs()[0].name
+    label_name = ort_model.get_outputs()[0].name
 
-    result = ort_model.run(None, {'keras_tensor': test_x[0:1]})[0]
+    onnx_prediction = ort_model.run([label_name], {input_name: test_x.astype(np.float32)})[0]
 
-    return templates.TemplateResponse("partials/inference.html", {"request": request, "result": np.argmax(result)})
+    return templates.TemplateResponse("partials/inference.html", {"request": request, "prediction": onnx_prediction})
 
