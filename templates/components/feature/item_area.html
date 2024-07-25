@@ -1,0 +1,9 @@
+<form
+  hx-post="/item/add-item"
+  hx-target="#item-list"
+  hx-swap="beforeend"
+  hx-include="#item-input"
+>
+  <input type="text" id="item-input" name="item" required />
+  <button type="submit">Add Item</button>
+</form>

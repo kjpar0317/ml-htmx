@@ -1,0 +1,39 @@
+<div>
+  <button
+    class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
+    hx-post="/ml/make_model"
+    hx-target="#result-training"
+    hx-swap="beforeend"
+  >
+    Model Traning
+  </button>
+  <div id="result-training"></div>
+</div>
+<div>
+  <button
+    class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
+    hx-post="/ml/convert_model"
+    hx-target="#result-convert"
+  >
+    Model convert
+  </button>
+  <div id="result-convert"></div>
+</div>
+<div>
+  <button
+    class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
+    hx-post="/ml/inference_model"
+    hx-target="#result-inference"
+  >
+    Model inference
+  </button>
+  <div id="result-inference"></div>
+</div>
+<div>
+  <h1>Item List</h1>
+  <ul id="item-list">
+    {% for item in items %}
+    <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</div>
