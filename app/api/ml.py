@@ -61,7 +61,7 @@ async def make_model(request: Request):
     # model export
     model.export(model_path)
 
-    return templates.TemplateResponse("partials/result.html", {"request": request, "result": model.get_metrics_result()})
+    return templates.TemplateResponse("/components/ml/result.html", {"request": request, "result": model.get_metrics_result()})
 
 @router.post("/convert_model")
 async def convert_model(request: Request):
@@ -71,7 +71,7 @@ async def convert_model(request: Request):
 
     os.system(cmd)
 
-    return templates.TemplateResponse("partials/convert.html", {"request": request, "result": cmd})
+    return templates.TemplateResponse("/components/ml/convert.html", {"request": request, "result": cmd})
 
 @router.post("/inference_model")
 async def inference_model(request: Request):
@@ -91,5 +91,5 @@ async def inference_model(request: Request):
 
     onnx_prediction = ort_model.run([label_name], {input_name: test_x.astype(np.float32)})[0]
 
-    return templates.TemplateResponse("partials/inference.html", {"request": request, "prediction": onnx_prediction})
+    return templates.TemplateResponse("/components/ml/inference.html", {"request": request, "prediction": onnx_prediction})
 

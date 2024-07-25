@@ -11,4 +11,4 @@ items = ["Item 1", "Item 2"]
 @router.post("/add-item")
 def add_item(request: Request, item: str = Form(...)):
     items.append(item)
-    return templates.TemplateResponse("partials/item.html", {"request": request, "item": item})
+    return templates.TemplateResponse("/components/item/item.html", {"request": request, "item": item})
