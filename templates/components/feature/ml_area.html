@@ -1,20 +1,50 @@
 <div>
   <button
-    class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
     hx-post="/ml/make_model"
+    class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
     hx-target="#result-training"
     hx-swap="beforeend"
+    hx-indicator="#spinner_training"
   >
+    <svg
+      id="spinner_training"
+      fill="none"
+      class="w-6 h-6 animate-spin htmx-indicator flex float-left"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     Model Traning
   </button>
-  <div id="result-training"></div>
 </div>
+<div id="result-training"></div>
 <div>
   <button
     class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
     hx-post="/ml/convert_model"
     hx-target="#result-convert"
+    hx-indicator="#spinner_convert"
   >
+    <svg
+      id="spinner_convert"
+      fill="none"
+      class="w-6 h-6 animate-spin htmx-indicator flex float-left"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     Model convert
   </button>
   <div id="result-convert"></div>
@@ -24,16 +54,23 @@
     class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative"
     hx-post="/ml/inference_model"
     hx-target="#result-inference"
+    hx-indicator="spinner_inference"
   >
+    <svg
+      id="spinner_inference"
+      fill="none"
+      class="w-6 h-6 animate-spin htmx-indicator flex float-left"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
     Model inference
   </button>
   <div id="result-inference"></div>
-</div>
-<div>
-  <h1>Item List</h1>
-  <ul id="item-list">
-    {% for item in items %}
-    <li>{{ item }}</li>
-    {% endfor %}
-  </ul>
 </div>

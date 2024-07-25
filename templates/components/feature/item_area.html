@@ -1,3 +1,11 @@
+<div>
+  <h1>Item List</h1>
+  <ul id="item-list">
+    {% for item in items %}
+    <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</div>
 <form
   hx-post="/item/add-item"
   hx-target="#item-list"
