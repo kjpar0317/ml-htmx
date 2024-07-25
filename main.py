@@ -4,8 +4,7 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 from app import router
-from app.api import item
-from app.api import ml
+from app.api import item, ml
 
 app = FastAPI(
     title="ML + Htmx",
