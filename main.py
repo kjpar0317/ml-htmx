@@ -1,8 +1,9 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 import uvicorn
 
-from app.api import home
+from app import router
 from app.api import item
 from app.api import ml
 
@@ -11,7 +12,9 @@ app = FastAPI(
     description="ML + Htmx"
 )
 
-app.include_router(home.router)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+app.include_router(router.router)
 app.include_router(item.router, prefix="/item", tags=["item"])
 app.include_router(ml.router, prefix="/ml", tags=["ML"])
 
