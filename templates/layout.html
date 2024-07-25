@@ -13,17 +13,35 @@
     />
     <link href="/static/css/main.css" rel="stylesheet" />
   </head>
-  <body class="font-sans p-8 w-full h-full" hx-boost="true">
-    <header>
-      <a class="navbar-brand" href="/">ML Test</a>
-      <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <a href="/" class="nav-link"> HOME </a>
-          <a href="/about" class="nav-link"> ABOUT </a>
-        </li>
-      </ul>
+  <body class="font-sans w-full h-full" hx-boost="true">
+    <header class="w-full text-gray-700 bg-white shadow-sm body-font">
+      <div class="container flex flex-col items-start p-6 mx-auto md:flex-row">
+        <a
+          class="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0"
+        >
+          Test
+        </a>
+        <nav class="flex items-center justify-center text-base md:ml-auto">
+          <a href="/" class="mr-5 font-medium hover:text-gray-900">Home</a>
+          <a href="/about" class="mr-5 font-medium hover:text-gray-900"
+            >About</a
+          >
+        </nav>
+        <div
+          class="items-center h-full pl-6 ml-6 border-l border-gray-200"
+        ></div>
+      </div>
     </header>
     <main>{% block content %} {% endblock content %}</main>
-    <footer>FOOTER</footer>
+    <footer
+      class="footer footer-center w-full h-[80px] p-2 bg-gray-300 text-gray-800"
+    >
+      <div class="text-center">
+        <p>
+          Copyright © 2022 -
+          <a class="font-semibold" href="#">TEST</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
