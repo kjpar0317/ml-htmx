@@ -86,7 +86,7 @@ def predict_keras_model(module_name: str, org_x: np.ndarray) -> np.ndarray:
 
     # model evalutate
     # verbose는 함수 수행 시 발생하는 표준 출력, 0은 출력 안함, 1은 자세히, 2는 함축적인 정보만 출력
-    predictions = model.predict(org_x, verbose=2)
+    predictions = model.predict(org_x, batch_size=32, verbose=2)
 
     return predictions
 

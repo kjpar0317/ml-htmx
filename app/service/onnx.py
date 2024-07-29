@@ -23,7 +23,7 @@ def check_onnx(module_name: str) -> None:
     onnx_model = onnx.load(onnx_model_file)
     onnx.checker.check_model(onnx_model)
 
-def insersession_onnx(module_name: str, org_x: np.ndarray) -> np.ndarray:
+def infersession_onnx(module_name: str, org_x: np.ndarray) -> np.ndarray:
     onnx_model_file = onnx_path + module_name + ".onnx"
 
     # onnx 모델 추론

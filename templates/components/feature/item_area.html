@@ -1,4 +1,4 @@
-<div>
+<div class="justify-center">
   <h1>Item List</h1>
   <ul id="item-list">
     {% for item in items %}
@@ -6,12 +6,19 @@
     {% endfor %}
   </ul>
 </div>
+<sl-divider></sl-divider>
 <form
   hx-post="/item/add-item"
   hx-target="#item-list"
   hx-swap="beforeend"
   hx-include="#item-input"
 >
-  <input type="text" id="item-input" name="item" required />
-  <button type="submit">Add Item</button>
+  <div class="flex w-full justify-between center">
+    <div class="float-left w-full">
+      <sl-input type="text" id="item-input" name="item" required />
+    </div>
+    <div class="flat-right">
+      <sl-button type="submit">Add Item</sl-button>
+    </div>
+  </div>
 </form>

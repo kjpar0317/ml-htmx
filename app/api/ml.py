@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 import tensorflow as tf
 
 from app.service.tensoflow import get_test_model, save_keras_model, train_keras_model, evaluate_keras_model, predict_keras_model, export_keras_model
-from app.service.onnx import convert_onnx, check_onnx, insersession_onnx
+from app.service.onnx import convert_onnx, check_onnx, infersession_onnx
 
 router = APIRouter()
 
@@ -71,7 +71,7 @@ async def inference_model(request: Request):
     (_, _), (test_x, _) = tf.keras.datasets.mnist.load_data()
     # test_x = (test_x / 255.0).astype('float32')
 
-    onnx_prediction = insersession_onnx(test_model_name, test_x)
+    onnx_prediction = infersession_onnx(test_model_name, test_x)
 
     return templates.TemplateResponse("/components/ml/result.html", {"request": request, "result": onnx_prediction})
 
