@@ -34,8 +34,13 @@ def get_test_model() -> tf.keras.Model:
     return model
 
 def save_keras_model(model: tf.keras.Model, model_name: str) -> None:
-        # model save
-    model.save(keras_path + model_name + ".keras")
+    keras_folder = keras_path + model_name
+
+    if not os.path.exists(keras_folder):
+        os.makedirs(keras_folder)
+
+    # model save
+    model.save(keras_folder + ".keras")
 
 def load_keras_model(model_name: str) -> tf.keras.Model:
     model = tf.keras.models.load_model(keras_path + model_name + ".keras")
