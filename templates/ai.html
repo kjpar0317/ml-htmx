@@ -1,0 +1,152 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container mx-auto p-8 text-gray-100">
+  <h1
+    class="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text animate-gradient"
+  >
+    AI 분석 시스템
+  </h1>
+
+  <div class="grid md:grid-cols-2 gap-12 mb-16 max-w-6xl mx-auto">
+    <sl-animation name="fade-in" easing="ease-out" iterations="1" play>
+      <sl-card
+        class="card-overview h-full bg-gray-900/80 backdrop-blur-lg text-gray-100 border border-gray-600/50 hover:border-purple-400/50 transition-all duration-300 shadow-2xl hover:shadow-purple-500/20"
+      >
+        <img
+          slot="image"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="AI Technology visualization"
+          class="rounded-t-lg w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
+        />
+        <div class="p-6">
+          <strong
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-2xl font-bold"
+            >실시간 AI 분석</strong
+          >
+          <p class="text-gray-300 mt-4 leading-relaxed">
+            최신 AI 기술을 활용한 실시간 데이터 분석 및 예측 시스템
+          </p>
+          <small class="text-gray-400 block mt-4 font-medium"
+            >업데이트: 실시간</small
+          >
+        </div>
+        <div
+          slot="footer"
+          class="border-t border-gray-700/50 flex justify-between items-center p-6"
+        >
+          <sl-button
+            variant="primary"
+            pill
+            size="large"
+            class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+          >
+            분석 시작하기
+          </sl-button>
+          <sl-rating style="--symbol-color-active: #8b5cf6"></sl-rating>
+        </div>
+      </sl-card>
+    </sl-animation>
+
+    <div class="space-y-8">
+      <sl-animation
+        name="fade-in"
+        delay="200"
+        easing="ease-out"
+        iterations="1"
+        play
+      >
+        <sl-card
+          class="bg-gray-900/80 backdrop-blur-lg border border-gray-600/50 hover:border-purple-400/50 transition-all duration-300 shadow-2xl hover:shadow-purple-500/20"
+        >
+          <h2
+            class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text mb-6"
+          >
+            분석 지표
+          </h2>
+          <div class="space-y-6 text-gray-300">
+            <div
+              class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <p class="font-medium">정확도</p>
+              <span class="text-emerald-400 font-bold">98.7%</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <p class="font-medium">처리 속도</p>
+              <span class="text-emerald-400 font-bold">0.3초</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <p class="font-medium">신뢰도</p>
+              <span class="text-emerald-400 font-bold">96.5%</span>
+            </div>
+          </div>
+        </sl-card>
+      </sl-animation>
+
+      <sl-animation
+        name="fade-in"
+        delay="400"
+        easing="ease-out"
+        iterations="1"
+        play
+      >
+        <sl-card
+          class="bg-gray-900/80 backdrop-blur-lg border border-gray-600/50 hover:border-purple-400/50 transition-all duration-300 shadow-2xl hover:shadow-purple-500/20"
+        >
+          <h2
+            class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text mb-6"
+          >
+            주요 기능
+          </h2>
+          <ul class="space-y-5 text-gray-300">
+            <li
+              class="flex items-center gap-4 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <span class="text-2xl">🤖</span>
+              <span class="font-medium">딥러닝 분석</span>
+            </li>
+            <li
+              class="flex items-center gap-4 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <span class="text-2xl">📊</span>
+              <span class="font-medium">데이터 시각화</span>
+            </li>
+            <li
+              class="flex items-center gap-4 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <span class="text-2xl">⚡</span>
+              <span class="font-medium">실시간 예측</span>
+            </li>
+            <li
+              class="flex items-center gap-4 p-3 bg-gray-800/50 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            >
+              <span class="text-2xl">📱</span>
+              <span class="font-medium">모바일 지원</span>
+            </li>
+          </ul>
+        </sl-card>
+      </sl-animation>
+    </div>
+  </div>
+
+  <div class="text-center mt-16">
+    <h2
+      class="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text"
+    >
+      AI 상담 시작하기
+    </h2>
+    <sl-button
+      variant="primary"
+      size="large"
+      class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 px-12 py-3"
+    >
+      <sl-icon slot="prefix" name="robot"></sl-icon>
+      분석 시작
+    </sl-button>
+  </div>
+</div>
+
+{% endblock content %}

@@ -20,7 +20,6 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: white; /* 헤더 배경색 */
   z-index: 1000; /* 헤더가 다른 요소 위에 오도록 설정 */
 }
 
@@ -29,11 +28,18 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #2d3748; /* 풋터 배경색 */
-  color: white;
 }
 
 .content {
-  padding-top: 60px; /* 헤더 높이만큼 패딩 추가 */
-  padding-bottom: 60px; /* 풋터 높이만큼 패딩 추가 */
+  margin-top: 100px; /* 헤더 높이만큼 패딩 추가 */
+  margin-bottom: 200px; /* 풋터 높이만큼 패딩 추가 */
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
 }

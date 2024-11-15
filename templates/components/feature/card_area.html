@@ -1,18 +1,139 @@
-<sl-animation name="bounce" easing="ease-in-out" iterations="1" play>
-  <sl-card class="card-overview">
-    <img
-      slot="image"
-      src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-      alt="A kitten sits patiently between a terracotta pot and decorative grasses."
-    />
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <sl-animation name="fade" easing="ease-in-out" iterations="1" play>
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="현대적인 부동산 건물 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>부동산 AI 분석</strong><br />
+      최신 AI 기술로 부동산 시장을 분석하고 최적의 투자 기회를 찾아보세요.<br />
+      <small>실시간 시장 분석</small>
+      <div slot="footer">
+        <sl-button variant="primary" pill>자세히 보기</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
 
-    <strong>Mittens</strong><br />
-    This kitten is as cute as he is playful. Bring him home today!<br />
-    <small>6 weeks old</small>
+  <sl-animation
+    name="fade"
+    easing="ease-in-out"
+    iterations="1"
+    play
+    delay="200"
+  >
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="주식 시장 차트 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>주식 AI 예측</strong><br />
+      머신러닝 기반 주가 예측으로 스마트한 투자 결정을 내리세요.<br />
+      <small>AI 기반 분석</small>
+      <div slot="footer">
+        <sl-button variant="success" pill>분석 시작</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
 
-    <div slot="footer">
-      <sl-button variant="primary" pill>More Info</sl-button>
-      <sl-rating></sl-rating>
-    </div>
-  </sl-card>
-</sl-animation>
+  <sl-animation
+    name="fade"
+    easing="ease-in-out"
+    iterations="1"
+    play
+    delay="400"
+  >
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="AI 기술 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>투자 포트폴리오</strong><br />
+      AI가 추천하는 맞춤형 투자 포트폴리오로 자산을 관리하세요.<br />
+      <small>개인 맞춤 서비스</small>
+      <div slot="footer">
+        <sl-button variant="neutral" pill>포트폴리오 보기</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
+
+  <sl-animation
+    name="fade"
+    easing="ease-in-out"
+    iterations="1"
+    play
+    delay="600"
+  >
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="암호화폐 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>암호화폐 트렌드</strong><br />
+      실시간 암호화폐 시장 동향과 AI 기반 투자 전략을 확인하세요.<br />
+      <small>24/7 시장 모니터링</small>
+      <div slot="footer">
+        <sl-button variant="warning" pill>트렌드 보기</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
+
+  <sl-animation
+    name="fade"
+    easing="ease-in-out"
+    iterations="1"
+    play
+    delay="800"
+  >
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="재무 컨설팅 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>AI 재무 컨설팅</strong><br />
+      개인 맞춤형 재무 상담과 투자 전략을 AI가 제시합니다.<br />
+      <small>전문가 수준의 조언</small>
+      <div slot="footer">
+        <sl-button variant="primary" pill>상담 시작</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
+
+  <sl-animation
+    name="fade"
+    easing="ease-in-out"
+    iterations="1"
+    play
+    delay="1000"
+  >
+    <sl-card class="card-overview w-full h-full">
+      <img
+        slot="image"
+        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+        alt="시장 분석 이미지"
+        class="w-full h-48 object-cover"
+      />
+      <strong>글로벌 마켓 인사이트</strong><br />
+      전 세계 금융 시장의 동향을 AI가 분석하고 예측합니다.<br />
+      <small>글로벌 시장 분석</small>
+      <div slot="footer">
+        <sl-button variant="success" pill>인사이트 보기</sl-button>
+        <sl-rating></sl-rating>
+      </div>
+    </sl-card>
+  </sl-animation>
+</div>

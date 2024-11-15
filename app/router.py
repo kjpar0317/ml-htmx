@@ -10,6 +10,14 @@ templates = Jinja2Templates(directory="templates")
 def home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
-@router.get("/about", response_class=HTMLResponse)
-def about(request: Request):
-    return templates.TemplateResponse("about.html", {"request": request})
+@router.get("/stocks", response_class=HTMLResponse)
+def stocks(request: Request):
+    return templates.TemplateResponse("stocks.html", {"request": request})
+
+@router.get("/realestate", response_class=HTMLResponse)
+def realestate(request: Request):
+    return templates.TemplateResponse("realestate.html", {"request": request})
+
+@router.get("/ai", response_class=HTMLResponse)
+def ai(request: Request):
+    return templates.TemplateResponse("ai.html", {"request": request})

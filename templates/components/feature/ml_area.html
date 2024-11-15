@@ -1,153 +1,219 @@
-<div class="w-full flex justify-center">
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/create_model"
-      hx-target="#result-ml"
-      hx-swap="beforeend"
-      hx-indicator="#spinner_create"
-      variant="primary"
-    >
-      <svg
-        id="spinner_create"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model create</sl-button
-    >
+<div
+  class="relative w-full p-8 bg-gray-900/80 backdrop-blur-lg rounded-xl shadow-lg relative overflow-hidden"
+>
+  <!-- 회전하는 포인트 효과 -->
+  <div class="absolute w-full h-full">
+    <div
+      class="absolute w-4 h-4 bg-white rounded-full blur-xl opacity-70"
+      style="animation: orbit 4s linear infinite; left: 50%; top: 0"
+    ></div>
+    <div
+      class="absolute w-4 h-4 bg-white rounded-full blur-xl opacity-70"
+      style="
+        animation: orbit 4s linear infinite;
+        animation-delay: -1.3s;
+        left: 50%;
+        top: 0;
+      "
+    ></div>
+    <div
+      class="absolute w-4 h-4 bg-white rounded-full blur-xl opacity-70"
+      style="
+        animation: orbit 4s linear infinite;
+        animation-delay: -2.6s;
+        left: 50%;
+        top: 0;
+      "
+    ></div>
   </div>
-  {% include '/components/layout/arrow_next.html' %}
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/train_model"
-      hx-target="#result-ml"
-      hx-indicator="#spinner_train"
-      variant="primary"
-    >
-      <svg
-        id="spinner_train"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
+
+  <h2
+    class="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text"
+  >
+    Machine Learning Pipeline
+  </h2>
+  <div class="w-full flex justify-center items-center gap-4">
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/create_model"
+        hx-target="#result-ml"
+        hx-swap="beforeend"
+        hx-indicator="#spinner_create"
+        variant="primary"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-blue-500 to-purple-500"
+        size="medium"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model training
-    </sl-button>
-  </div>
-  {% include '/components/layout/arrow_next.html' %}
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/evaluate_model"
-      hx-target="#result-ml"
-      hx-indicator="#spinner_evaluate"
-      variant="primary"
-    >
-      <svg
-        id="spinner_evaluate"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
+        <svg
+          id="spinner_create"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Create Model
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 1</span>
+    </div>
+
+    {% include '/components/layout/arrow_next.html' %}
+
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/train_model"
+        hx-target="#result-ml"
+        hx-indicator="#spinner_train"
+        variant="success"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-green-500 to-emerald-500"
+        size="medium"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model evaluate
-    </sl-button>
-  </div>
-  {% include '/components/layout/arrow_next.html' %}
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/prediction_model"
-      hx-target="#result-ml"
-      hx-indicator="#spinner_prediction"
-      variant="primary"
-    >
-      <svg
-        id="prediction"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
+        <svg
+          id="spinner_train"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Train Model
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 2</span>
+    </div>
+
+    {% include '/components/layout/arrow_next.html' %}
+
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/evaluate_model"
+        hx-target="#result-ml"
+        hx-indicator="#spinner_evaluate"
+        variant="warning"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-amber-500 to-orange-500"
+        size="medium"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model prediction
-    </sl-button>
-  </div>
-  {% include '/components/layout/arrow_next.html' %}
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/convert_model"
-      hx-target="#result-ml"
-      hx-indicator="#spinner_convert"
-      variant="primary"
-    >
-      <svg
-        id="spinner_convert"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
+        <svg
+          id="spinner_evaluate"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Evaluate Model
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 3</span>
+    </div>
+
+    {% include '/components/layout/arrow_next.html' %}
+
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/prediction_model"
+        hx-target="#result-ml"
+        hx-indicator="#spinner_prediction"
+        variant="neutral"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-gray-500 to-slate-500"
+        size="medium"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model convert
-    </sl-button>
-  </div>
-  {% include '/components/layout/arrow_next.html' %}
-  <div class="flex">
-    <sl-button
-      hx-post="/ml/inference_model"
-      hx-target="#result-ml"
-      hx-indicator="spinner_inference"
-      variant="primary"
-    >
-      <svg
-        id="spinner_inference"
-        fill="none"
-        class="w-6 h-6 animate-spin htmx-indicator flex float-left"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
+        <svg
+          id="spinner_prediction"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Make Prediction
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 4</span>
+    </div>
+
+    {% include '/components/layout/arrow_next.html' %}
+
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/convert_model"
+        hx-target="#result-ml"
+        hx-indicator="#spinner_convert"
+        variant="primary"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-indigo-500 to-violet-500"
+        size="medium"
       >
-        <path
-          clip-rule="evenodd"
-          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </svg>
-      model inference
-    </sl-button>
+        <svg
+          id="spinner_convert"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Convert Model
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 5</span>
+    </div>
+
+    {% include '/components/layout/arrow_next.html' %}
+
+    <div class="flex flex-col items-center">
+      <sl-button
+        hx-post="/ml/inference_model"
+        hx-target="#result-ml"
+        hx-indicator="#spinner_inference"
+        variant="success"
+        class="transform hover:scale-105 transition-transform text-sm bg-gradient-to-r from-emerald-500 to-teal-500"
+        size="medium"
+      >
+        <svg
+          id="spinner_inference"
+          fill="none"
+          class="w-4 h-4 animate-spin htmx-indicator flex float-left mr-2"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+        Run Inference
+      </sl-button>
+      <span class="text-sm text-gray-300 mt-2">Step 6</span>
+    </div>
   </div>
+  <div
+    id="result-ml"
+    class="mt-8 p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-inner border border-gray-700/50"
+  ></div>
 </div>
-<div id="result-ml"></div>

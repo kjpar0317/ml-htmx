@@ -1,10 +1,17 @@
-<div class="justify-center">
-  <h1>Item List</h1>
-  <ul id="item-list">
+<div class="justify-center p-6 mb-32">
+  <h1 class="text-2xl font-bold mb-6">AI 분석 결과</h1>
+  <div
+    class="bg-gray-50 p-4 rounded-lg relative overflow-hidden hover:shadow-lg transition-shadow"
+    id="item-list"
+  >
     {% for item in items %}
-    <li>{{ item }}</li>
+    <div class="flex items-center justify-between p-2 border-b">
+      <sl-icon name="graph-up"></sl-icon>
+      <span class="ml-2">{{ item }}</span>
+      <sl-badge variant="neutral" pill>AI 예측</sl-badge>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </div>
 <sl-divider></sl-divider>
 <form
@@ -12,13 +19,23 @@
   hx-target="#item-list"
   hx-swap="beforeend"
   hx-include="#item-input"
+  class="p-4"
 >
-  <div class="flex w-full justify-between center">
-    <div class="float-left w-full">
-      <sl-input type="text" id="item-input" name="item" required />
+  <div class="flex w-full justify-between items-center gap-4">
+    <div class="flex-1">
+      <sl-input
+        type="text"
+        id="item-input"
+        name="item"
+        placeholder="분석할 투자 항목을 입력하세요 (예: 강남 아파트, 삼성전자 주가)"
+        required
+      />
     </div>
-    <div class="flat-right">
-      <sl-button type="submit">Add Item</sl-button>
+    <div>
+      <sl-button type="submit" variant="primary">
+        <sl-icon slot="prefix" name="search"></sl-icon>
+        AI 분석 시작
+      </sl-button>
     </div>
   </div>
 </form>
